@@ -5,3 +5,4 @@ theme: 'bs5'
 params:
   description: "iTORA chats history 2021/2022"
 enableRobotsTXT: true
+publishdir: 'docs'
