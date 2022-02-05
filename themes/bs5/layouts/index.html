@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container p-3">
+    <div class="row">
+        <div class="col text-center"><h1>iTora chats Backup 2021/2022</h1></div>
+    </div>
+    <div class="row my-4">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Номер</th>
+                    <th scope="col">Недельная Глава</th>
+                    <th scope="col">Книга</th>
+                    <th scope="col">Тексты</th>
+                    <th scope="col">Ссылка на чат</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{ $cnt := len .Site.Data.chats }}
+                {{ range $key, $value:= .Site.Data.chats }}
+                    <tr>
+                        {{ $num := sub $cnt $key  }}
+                        {{ $num := fmt.Printf "%02d"  $num  }}
+                        <th scope="row">{{ $num }}</th>
+                        <td>{{ $value.title }}</td>
+                        <td>{{ $value.book }}</td>
+                        <td>{{ $value.texts }}</td>
+                        <td><a href="chats/{{ $num }}/messages.html">{{ $value.title }}</a></td>
+                    </tr>
+                {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{ end }}
